@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 require('dotenv').config();
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = express();
 const PORT = 8080;
@@ -14,15 +16,15 @@ const PORT = 8080;
 //   user: process.env.EMAIL_USER,
 //   pass: process.env.EMAIL_PASS
 // }
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+// });
 
 
 // Middleware
@@ -52,24 +54,21 @@ app.post('/api/contact', async (req, res) => {
     console.log('---');
 
     // Email content
-    const mailOptions = {
-      from: process.env.EMAIL_USER || 'parindyahewage7@gmail.com',
-      to: process.env.EMAIL_USER || 'parindyahewage7@gmail.com',
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>This email was sent from your portfolio contact form.</small></p>
-      `
-    };
-
+    await resend.emails.send({
+  from: 'onboarding@resend.dev',
+  to: 'parindyahewage7@gmail.com',
+  subject: `New Contact Form Submission from ${name}`,
+  html: `
+    <h2>New Contact Form Submission</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Message:</strong></p>
+    <p>${message.replace(/\n/g, '<br>')}</p>
+  `
+});
     // Send email
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent to:', process.env.EMAIL_USER || 'parindyahewage7@gmail.com');
+    // await transporter.sendMail(mailOptions);
+   console.log('✅ Email sent successfully');
 
     res.status(200).json({ success: true, message: 'Message received and email sent successfully' });
   } catch (error) {
