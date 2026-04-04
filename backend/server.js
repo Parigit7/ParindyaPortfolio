@@ -11,14 +11,14 @@ const PORT = 8080;
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_USER || 'parindyahewage7@gmail.com',
-    pass: process.env.GMAIL_PASSWORD || '' // Use Gmail app password
-  }
+  user: process.env.EMAIL_USER,
+  pass: process.env.EMAIL_PASS
+}
 });
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3008', 'http://localhost:5173'],
+  origin: ['http://localhost:3000', 'http://localhost:3008', 'http://localhost:5173', 'https://parindya-portfolio.netlify.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
