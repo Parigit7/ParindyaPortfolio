@@ -55,7 +55,7 @@ app.post('/api/contact', async (req, res) => {
 
     // Email content
     await resend.emails.send({
-  from: 'onboarding@resend.dev',
+  from: 'Parindya <onboarding@resend.dev>',
   to: 'parindyahewage7@gmail.com',
   subject: `New Contact Form Submission from ${name}`,
   html: `
