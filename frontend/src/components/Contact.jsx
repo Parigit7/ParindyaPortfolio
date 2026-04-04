@@ -272,7 +272,7 @@ export default function Contact() {
 
     try {
       // Send to backend API endpoint
-      const response = await fetch('http://localhost:8080/api/contact', {
+      const response = await fetch('https://parindyaportfolio.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
