@@ -53,8 +53,8 @@ app.post('/api/contact', async (req, res) => {
 
     // Email content
     const mailOptions = {
-      from: process.env.GMAIL_USER || 'parindyahewage7@gmail.com',
-      to: process.env.GMAIL_USER || 'parindyahewage7@gmail.com',
+      from: process.env.EMAIL_USER || 'parindyahewage7@gmail.com',
+      to: process.env.EMAIL_USER || 'parindyahewage7@gmail.com',
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -69,7 +69,7 @@ app.post('/api/contact', async (req, res) => {
 
     // Send email
     await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent to:', process.env.GMAIL_USER || 'parindyahewage7@gmail.com');
+    console.log('✅ Email sent to:', process.env.EMAIL_USER || 'parindyahewage7@gmail.com');
 
     res.status(200).json({ success: true, message: 'Message received and email sent successfully' });
   } catch (error) {
