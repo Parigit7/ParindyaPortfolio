@@ -1,53 +1,49 @@
 # Modern Portfolio - Backend
 
-A Spring Boot REST API for the Modern Portfolio application.
+A simple Node.js/Express REST API for the Modern Portfolio contact form.
 
 ## Features
 
-- ⚡️ **Spring Boot 3.1** - Latest Spring Boot version
-- 🗄️ **JPA/Hibernate** - ORM for database operations
-- 🔄 **REST API** - RESTful endpoints for projects
-- 🔐 **CORS Configuration** - Configured for frontend integration
-- 🧪 **H2 Database** - In-memory database for development
-- 📝 **Lombok** - Reduces boilerplate code
-- ✅ **Validation** - Input validation support
+- ⚡️ **Express.js** - Lightweight web framework
+- 📧 **Email Sending** - Nodemailer for Gmail integration
+- 🔐 **CORS Enabled** - Configured for frontend communication
+- 📝 **Contact API** - POST /api/contact endpoint
+- 🚀 **Fast & Simple** - Minimal dependencies, quick startup
 
 ## Getting Started
 
 ### Prerequisites
 
-- Java 17 or higher
-- Maven 3.6 or higher
+- Node.js 14+ and npm
 
 ### Installation
 
 ```bash
 cd backend
-mvn clean install
+npm install
 ```
 
 ### Development
 
 ```bash
-mvn spring-boot:run
+npm start          # Start the server
+```
+
+Or with auto-reload:
+```bash
+npm run dev        # Requires nodemon (dev dependency)
 ```
 
 The API will be available at `http://localhost:8080`
-
-### Build
-
-```bash
-mvn clean package
-```
 
 ## Project Structure
 
 ```
 backend/
-├── src/
-│   ├── main/
-│   │   ├── java/com/portfolio/
-│   │   │   ├── PortfolioApplication.java    - Main entry point
+├── server.js       - Main Express server
+├── package.json    - Dependencies
+├── .env           - Environment variables (Gmail config)
+└── node_modules/  - Installed dependencies
 │   │   │   ├── config/
 │   │   │   │   └── CorsConfig.java          - CORS configuration
 │   │   │   ├── controller/
