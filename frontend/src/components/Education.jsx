@@ -7,7 +7,7 @@ export default function Education() {
     {
       degree: 'Bachelor of Computer Science',
       institution: 'University Of Ruhuna',
-      period: '2008 – 2021',
+      period: '2023 – Present',
       location: 'Matara',
       gpa: '3.55',
       icon: BookOpen,
@@ -26,9 +26,9 @@ export default function Education() {
     {
       degree: 'GCE Advanced Level - Mathematics Stream',
       institution: 'C.W.W. Kannangara Central College Matugama',
-      period: '2023 – Present',
+      period: '2008 – 2021',
       location: 'Matugama',
-      rank: '191',
+      rank: '191(Kalutara district)',
       icon: Award,
       details: []
     }
