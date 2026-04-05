@@ -17,16 +17,13 @@ export default function Contact() {
     setSubmitStatus(null)
 
     try {
-      // Submit to Netlify Forms
-      const response = await fetch('/', {
+      // Submit to FormSubmit
+      const formElement = e.target
+      const formData = new FormData(formElement)
+      
+      const response = await fetch('https://formsubmit.co/parindyahewage7@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }).toString(),
+        body: formData,
       })
 
       if (response.ok) {
@@ -175,9 +172,6 @@ export default function Contact() {
 
           {/* RIGHT - CONTACT FORM */}
           <motion.form
-            name="contact"
-            method="POST"
-            data-netlify="true"
             onSubmit={handleSubmit}
             variants={item}
             className="bg-white/40 dark:bg-slate-800 backdrop-blur-md p-8 rounded-2xl border border-white/60 dark:border-slate-700 shadow-lg hover:shadow-xl transition duration-300"
@@ -186,9 +180,6 @@ export default function Contact() {
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Send Message
             </h3>
-
-            {/* Hidden field for Netlify */}
-            <input type="hidden" name="form-name" value="contact" />
 
             <div className="space-y-5">
 
