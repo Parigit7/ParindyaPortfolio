@@ -9,11 +9,12 @@
   <body>
     <div id="root"></div>
     
-    <!-- Hidden form for Netlify Forms -->
-    <form name="contact" method="POST" style="display:none;">
+    <!-- Hidden form for Netlify Forms Detection -->
+    <form name="contact" method="POST" netlify style="display:none;">
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
+      <input type="hidden" name="form-name" value="contact" />
     </form>
 
     <script type="module" src="/src/main.jsx"></script>

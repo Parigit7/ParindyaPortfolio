@@ -177,6 +177,7 @@ export default function Contact() {
           <motion.form
             name="contact"
             method="POST"
+            data-netlify="true"
             onSubmit={handleSubmit}
             variants={item}
             className="bg-white/40 dark:bg-slate-800 backdrop-blur-md p-8 rounded-2xl border border-white/60 dark:border-slate-700 shadow-lg hover:shadow-xl transition duration-300"
