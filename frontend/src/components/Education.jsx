@@ -27,7 +27,7 @@ export default function Education() {
       degree: 'GCE Advanced Level - Mathematics Stream',
       institution: 'C.W.W. Kannangara Central College Matugama',
       period: '2023 – Present',
-      location: 'Matara',
+      location: 'Matugama',
       rank: '191',
       icon: Award,
       details: []
