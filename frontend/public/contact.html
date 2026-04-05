@@ -1,6 +1,8 @@
-<form name="contact" method="POST" data-netlify="true">
+<!-- Netlify Form Handler for Contact Form -->
+<!-- This form is detected by Netlify during build -->
+<form name="contact" method="POST" data-netlify="true" hidden>
   <input type="hidden" name="form-name" value="contact" />
-  <input name="name" />
-  <input name="email" />
+  <input type="text" name="name" />
+  <input type="email" name="email" />
   <textarea name="message"></textarea>
 </form>
