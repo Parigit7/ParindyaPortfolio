@@ -54,21 +54,21 @@ app.post('/api/contact', async (req, res) => {
     console.log('---');
 
     // Email content
-    await resend.emails.send({
-  from: 'Parindya <onboarding@resend.dev>',
-  to: 'parindyahewage7@gmail.com',
-  subject: `New Contact Form Submission from ${name}`,
-  html: `
-    <h2>New Contact Form Submission</h2>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Message:</strong></p>
-    <p>${message.replace(/\n/g, '<br>')}</p>
-  `
-});
-    // Send email
-    // await transporter.sendMail(mailOptions);
-   console.log('✅ Email sent successfully');
+    const result = await resend.emails.send({
+      from: 'noreply@parindyaportfolio.com',
+      to: 'parindyahewage7@gmail.com',
+      replyTo: email,
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    });
+    
+    console.log('✅ Email sent successfully via Resend:', result.id);
 
     res.status(200).json({ success: true, message: 'Message received and email sent successfully' });
   } catch (error) {
