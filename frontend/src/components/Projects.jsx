@@ -28,7 +28,7 @@ export default function Projects() {
       color: 'from-purple-500 to-pink-500',
       icon: '💡',
       image: 'i.jpeg',
-      links: {demo:'https://digital-marketing-navy-chi.vercel.app/', github: 'https://github.com/Parigit7/DIGITAL-MARKETING.git' },
+      links: { demo:'https://digital-marketing-navy-chi.vercel.app/', github: 'https://github.com/Parigit7/DIGITAL-MARKETING.git' },
       codeButtonLabel: 'Code'
     },
     {
